@@ -1,0 +1,8 @@
+export default function Page() {
+  return (
+    <section className="container">
+      <h1>Methodology</h1>
+      <p className="muted">Placeholder — content coming next phase.</p>
+    </section>
+  );
+}
