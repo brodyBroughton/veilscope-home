@@ -1,8 +1,15 @@
-export default function Page() {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms - Veilscope",
+  description: "Terms of service placeholder for Veilscope.",
+}
+
+export default function TermsPage() {
   return (
-    <section className="container">
+    <div className="container section">
       <h1>Terms</h1>
-      <p className="muted">Placeholder — content coming next phase.</p>
-    </section>
+      <p className="lead">Terms of service coming soon.</p>
+    </div>
   );
 }

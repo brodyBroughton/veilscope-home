@@ -1,8 +1,15 @@
-export default function Page() {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy - Veilscope",
+  description: "Privacy policy placeholder for Veilscope",
+};
+
+export default function PrivacyPage() {
   return (
-    <section className="container">
+    <div className="container section">
       <h1>Privacy</h1>
-      <p className="muted">Placeholder — content coming next phase.</p>
-    </section>
+      <p className="lead">Privacy policy coming soon.</p>
+    </div>
   );
 }

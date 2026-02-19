@@ -16,13 +16,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Veilscope",
-  description: "Transparent, trustworthy access to unbiased public-company fundamentals",
+  metadataBase: new URL("https://veilscope.com"),
+  title: {
+    default: "Veilscope",
+    template: "%s | Veilscope",
+  },
+  description: "Transparent, trustworthy access to unbiased public-company fundamentals.",
+  openGraph: {
+    title: "Veilscope",
+    description: "Transparent, trustworthy access to unbiased public-company fundamentals.",
+    url: "https://veilscope.com",
+    siteName: "Veilscope",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Veilscope",
+    description:
+    "Transparent, trustworthy access to unbiased public-company fundamentals.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icons/favicon.ico" },
+      { url: "/favicon.ico" },
     ],
     apple: "/icons/apple-touch-icon.png",
   },
@@ -36,10 +57,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="site">
+  <body className={`${geistSans.variable} ${geistMono.variable} app-shell`}>
+        <div className="app-container">
           <Header />
-          <main className="site-main">{children}</main>
+          <main className="app-main">{children}</main>
           <Footer />
         </div>
       </body>

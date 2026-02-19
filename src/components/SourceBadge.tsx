@@ -3,7 +3,7 @@ type SourceBadgeProps = {
     href?: string;
 };
 
-export default function SourceBade({
+export default function SourceBadge({
     label = "Source: SEC EDGAR",
     href,
 }: SourceBadgeProps ) {

@@ -2,7 +2,7 @@ const CONTACT_URL = "https://contact.veilscope.com";
 
 export default function Footer() {
     return (
-        <footer className="site-footer">
+        <footer className="surface site-footer">
             <div className="container footer-inner">
                 <div className="footer-links">
                     <a href="/data-sources">Data Sources</a>

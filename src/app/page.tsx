@@ -4,6 +4,7 @@ import DisclosureBanner from "@/components/DisclosureBanner";
 import FeatureCard from "@/components/FeatureCard";
 import UpdatesFeed from "@/components/UpdatesFeed";
 import { APP_URL } from "@/lib/links";
+import MiniScreenerDemo from "@/components/MiniScreenerDemo";
 
 export const metadata: Metadata = {
   title: "Veilscope - Transparent stock screening from SEC filings",
@@ -52,6 +53,7 @@ export default function Home() {
   return (
     <div className="home">
       <section className="container section hero">
+        <div className="hero-grid">
         <div className="hero-text">
           <p className="eyebrow">Unbiased fundamentals</p>
           <h1>Unbiased screening from public filings</h1>
@@ -65,7 +67,12 @@ export default function Home() {
             </CTAButton>
           </div>
           <DisclosureBanner />
+          </div>
+          <div className="hero-demo">
+            <MiniScreenerDemo />
+          </div>
         </div>
+
       </section>
 
       <section className="container section">
