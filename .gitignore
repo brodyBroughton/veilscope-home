@@ -4,9 +4,6 @@
 scripts
 tests/
 test-results/
-docs/
-.vscode/
-agents.md
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 

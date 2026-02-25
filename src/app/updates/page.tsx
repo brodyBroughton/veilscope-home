@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import UpdatesClient from "./UpdatesClient";
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
@@ -42,7 +43,9 @@ export default async function UpdatesPage() {
       </Reveal>
 
       <Reveal as="section" className="section">
-        <UpdatesClient initialItems={initialItems} />
+        <Suspense fallback={<div className="updates-feed">Loading updates...</div>}>
+          <UpdatesClient initialItems={initialItems} />
+        </Suspense>
       </Reveal>
     </div>
   );
