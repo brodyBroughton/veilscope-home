@@ -2,6 +2,11 @@
 .env.local
 
 scripts
+tests/
+test-results/
+docs/
+.vscode/
+agents.md
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -46,3 +51,11 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

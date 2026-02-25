@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
 import UpdatesFeed from "@/components/UpdatesFeed";
 import { APP_URL, UPDATES_API_URL } from "@/lib/links";
@@ -20,6 +21,9 @@ type UpdatesClientProps = {
 };
 
 export default function UpdatesClient({ initialItems }: UpdatesClientProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const hasOpenedModal = useRef(false);
   const normalizeItems = (list: UpdateItem[]) =>
     list.map((item) => {
       const tags = item.tags ? [...item.tags] : [];
@@ -85,6 +89,16 @@ export default function UpdatesClient({ initialItems }: UpdatesClientProps) {
       active = false;
     };
   }, [initialItems]);
+
+  useEffect(() => {
+    const slug = searchParams.get("slug");
+
+    if (!slug || hasOpenedModal.current) return;
+
+    hasOpenedModal.current = true;
+    router.replace("/updates");
+    router.push(`/updates/${slug}`);
+  }, [router, searchParams]);
 
   const displayItems = useMemo(() => {
     let list = items;

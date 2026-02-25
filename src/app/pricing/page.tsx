@@ -4,6 +4,7 @@ import DisclosureBanner from "@/components/DisclosureBanner";
 import PricingTable from "@/components/PricingTable";
 import FAQAccordion from "@/components/FAQAccordion";
 import { APP_URL } from "@/lib/links";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Pricing - Veilscope",
@@ -47,31 +48,37 @@ const faqs = [
 export default function PricingPage() {
   return (
     <div className="container section">
-      <h1>Pricing</h1>
-      <p className="lead">Clear tiers with transparent limits and no hidden data changes.</p>
-      <DisclosureBanner />
+      <Reveal className="page-hero">
+        <p className="eyebrow">Pricing</p>
+        <h1>Transparent tiers, clear limits</h1>
+        <p className="lead">Usage tiers keep limits clear without changing the underlying data.</p>
+        <DisclosureBanner />
+        <div className="page-hero-actions">
+          <CTAButton href={APP_URL} newTab>
+            Open the App
+          </CTAButton>
+        </div>
+      </Reveal>
 
-      <section className="section">
+      <Reveal as="section" className="section">
         <PricingTable tiers={tiers} />
-      </section>
+      </Reveal>
 
-      <section className="section">
-        <h2>Transparent Limits</h2>
-        <p className="muted">
-          Tiers control usage and feature access only. Data sources and methodology stay the same.
-        </p>
-      </section>
+      <Reveal as="section" className="section">
+        <div className="section-card section-card--compact">
+          <h2>Transparent Limits</h2>
+          <p className="muted">
+            Tiers control usage and feature access only. Data sources and methodology stay the same.
+          </p>
+        </div>
+      </Reveal>
 
-      <section className="section">
-        <CTAButton href={APP_URL} newTab>
-          Open the App
-        </CTAButton>
-      </section>
-
-      <section className="section">
-        <h2>Pricing questions</h2>
-        <FAQAccordion items={faqs} />
-      </section>
+      <Reveal as="section" className="section">
+        <div className="section-card section-card--compact">
+          <h2>Pricing questions</h2>
+          <FAQAccordion items={faqs} />
+        </div>
+      </Reveal>
     </div>
   );
 }

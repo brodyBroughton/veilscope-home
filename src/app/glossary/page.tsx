@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTAButton from "@/components/CTAButton";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Glossary - Veilscope",
@@ -60,10 +61,21 @@ const terms = [
 export default function GlossaryPage() {
   return (
     <div className="container section">
-      <h1>Glossary</h1>
-      <p className="lead">Short definitions for the terms used across Veilscope.</p>
+      <Reveal className="page-hero">
+        <p className="eyebrow">Glossary</p>
+        <h1>Key terms, plain English</h1>
+        <p className="lead">Short definitions for the terms used across Veilscope.</p>
+        <div className="page-hero-actions">
+          <CTAButton href="/data-sources" variant="secondary">
+            Data Sources
+          </CTAButton>
+          <CTAButton href="/methodology" variant="ghost">
+            Methodology
+          </CTAButton>
+        </div>
+      </Reveal>
 
-      <section className="section">
+      <Reveal as="section" className="section">
         <dl className="glossary-list">
           {terms.map((item) => (
             <div key={item.term} className="glossary-item">
@@ -72,16 +84,7 @@ export default function GlossaryPage() {
             </div>
           ))}
         </dl>
-      </section>
-
-      <section className="section">
-        <CTAButton href="/data-sources" variant="secondary">
-          Data Sources
-        </CTAButton>
-        <CTAButton href="/methodology" variant="ghost">
-          Methodology
-        </CTAButton>
-      </section>
+      </Reveal>
     </div>
   );
 }

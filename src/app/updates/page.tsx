@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import UpdatesClient from "./UpdatesClient";
 import { prisma } from "@/lib/prisma";
+import Reveal from "@/components/Reveal";
 
 export const revalidate = 60;
 
@@ -31,13 +32,18 @@ export default async function UpdatesPage() {
   }));
 
   return (
-    <div className="container section">
-      <h1>Updates</h1>
-      <p className="lead">
-        Product progress and research notes. Educational only. Not investment advice.
-      </p>
+    <div className="container section updates-page">
+      <Reveal className="page-hero">
+        <p className="eyebrow">Updates</p>
+        <h1>Product updates & release notes</h1>
+        <p className="lead">
+          Product progress and research notes. Educational only. Not investment advice.
+        </p>
+      </Reveal>
 
-      <UpdatesClient initialItems={initialItems} />
+      <Reveal as="section" className="section">
+        <UpdatesClient initialItems={initialItems} />
+      </Reveal>
     </div>
   );
 }

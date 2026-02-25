@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTAButton from "@/components/CTAButton";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "FAQ - Veilscope",
@@ -45,21 +46,25 @@ const items = [
 export default function FAQPage() {
   return (
     <div className="container section">
-      <h1>FAQ</h1>
-      <p className="lead">Clear answers for first‑time users.</p>
+      <Reveal className="page-hero">
+        <p className="eyebrow">FAQ</p>
+        <h1>Clear answers, quick references</h1>
+        <p className="lead">Short, beginner‑friendly explanations of how Veilscope works.</p>
+        <div className="page-hero-actions">
+          <CTAButton href="/glossary" variant="secondary">
+            Glossary
+          </CTAButton>
+          <CTAButton href="/data-sources" variant="ghost">
+            Data Sources
+          </CTAButton>
+        </div>
+      </Reveal>
 
-      <section className="section">
-        <FAQAccordion items={items} />
-      </section>
-
-      <section className="section">
-        <CTAButton href="/glossary" variant="secondary">
-          Glossary
-        </CTAButton>
-        <CTAButton href="/data-sources" variant="ghost">
-          Data Sources
-        </CTAButton>
-      </section>
+      <Reveal as="section" className="section">
+        <div className="section-card section-card--compact">
+          <FAQAccordion items={items} />
+        </div>
+      </Reveal>
     </div>
   );
 }

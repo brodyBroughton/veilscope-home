@@ -29,6 +29,10 @@ export default function UpdateModal({ title, date, summary, tags, body, onClose,
     }, []);
 
     useEffect(() => {
+        window.dispatchEvent(new CustomEvent("update-modal:ready"));
+    }, []);
+
+    useEffect(() => {
         const originalOverflow = document.body.style.overflow;
         const originalPadding = document.body.style.paddingRight;
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
